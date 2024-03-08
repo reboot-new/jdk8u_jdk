@@ -373,6 +373,7 @@ JavaMain(void * _args)
 
     /* Initialize the virtual machine */
     start = CounterGet();
+    //执行了 CreateJavaVM ,内部调用 Hotspot代码，创建jvm
     if (!InitializeJVM(&vm, &env, &ifn)) {
         JLI_ReportErrorMessage(JVM_ERROR1);
         exit(1);
@@ -1974,6 +1975,9 @@ IsWildCardEnabled()
     return _wc_enabled;
 }
 
+/**
+ * 创新新的线程执行jvm，跳转
+*/
 int
 ContinueInNewThread(InvocationFunctions* ifn, jlong threadStackSize,
                     int argc, char **argv,

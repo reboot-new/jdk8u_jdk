@@ -1151,6 +1151,7 @@ public final class System {
 
     /**
      * Initialize the system class.  Called after thread initialization.
+     * 在这个地方 设置props中的 java.class.path的属性。在 hotspot 中的 createJavaVM中调用到这里
      */
     private static void initializeSystemClass() {
 
